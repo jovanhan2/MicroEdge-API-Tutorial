@@ -11,8 +11,8 @@ npm config set proxy http://company.com:8000
 npm config set https-proxy http://company.com:8000
 ```
 # Get up and running
-- Get a user ID and private key that can access the GO API (fill in keys.js)
 - Execute: `npm install` to install dependencies
+- Get a user ID and private key that can access the GO API (fill in keys.js)
 - Change ```var contactId = "149"``` on line 7 to any contact ID
 - Set ```var proxyUrl = "http://company.com:8000"``` to your company proxy
 - Execute: `node test.js`l
