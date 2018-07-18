@@ -1,10 +1,10 @@
 var request = require('request');
 var keys = require('./keys')
-// require('request-debug')(request);
 
-// Get contact ID, user ID and private key from command line arguments
+
 
 var contactId = "149"
+// Get API keys
 var userId = keys.getuserID()
 var privateKey = keys.getprivateKey()
 
@@ -21,31 +21,38 @@ if (!privateKey) {
     console.log('Private key not provided.');
     return;
 }
+// Proxy if needed
 var proxyUrl = "http://webdefence.global.blackspider.com:8081"
 var proxiedRequest = request.defaults({'proxy':proxyUrl})
 
 
 proxiedRequest.post(
+    // Authenthicate API keys
     'https://uk.api.microedge.com/auth/token/me-auth',
     { json: { userId: userId, privateKey: privateKey } },
     function (error, response, body) {
-        console.log("TEST")
         console.log(body)
-        // console.log(body)
+        // Status code 200 = OK (success) and we are authenthicated
         if (!error && response.statusCode == 200 && body.authenticated) {
+            // JSON web token obtained
             var token = body.token;
             var options = {
+                // End point - change for contact, request, etc
                 url: 'https://uk.api.microedge.com/goapi/contact/getContact',
                 method: 'POST',
+                // Prove you authenthication with your received token
                 headers: { 'Authorization': 'bearer ' + token },
                 json: true,
+                // Send over which contact ID you require
                 body: { id: contactId }
             };
     
             // use the auth JWT to call the contact endpoint
             proxiedRequest(options, function (contactError, contactResponse, contactBody) {
+                // If successful
                 if (contactResponse.statusCode == 200) { 
                     var contact = contactResponse.body.contact;
+                    // Get contact object
                     if (contact) {
                         console.log('Name of contact: ' + contact.firstName + ' ' + contact.lastName);
                     } else {

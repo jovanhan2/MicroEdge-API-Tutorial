@@ -15,6 +15,6 @@ npm config set https-proxy http://company.com:8000
 - Execute: `npm install` to install dependencies
 - Change ```var contactId = "149"``` on line 7 to any contact ID
 - Set ```var proxyUrl = "http://company.com:8000"``` to your company proxy
-- Execute: `node test.js`
+- Execute: `node test.js`l
 
 
