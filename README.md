@@ -27,7 +27,11 @@ Cloning basically downloads the project from github
 - Open VS code in the directory
 - Navigate to the directory via git clone 
 - Execute: `npm install` to install dependencies
+
 Installs all the required libraries for the project
+
+![image](https://user-images.githubusercontent.com/2521843/43068165-92859dde-8e61-11e8-946c-abbb7a2c7f61.png)
+
 
 - Get a user ID and private key that can access the GO API (fill in the reutrn statement in keys.js)
 - Change ```var contactId = "149"``` on line 7 to any contact ID
