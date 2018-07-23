@@ -13,6 +13,8 @@ Run and set the proxy for npm  ( replace http://company.com:8000 with your compa
 npm config set proxy http://company.com:8000
 npm config set https-proxy http://company.com:8000
 ```
+![image](https://user-images.githubusercontent.com/2521843/43068924-aeacad7a-8e63-11e8-9df9-c8d4767c6f48.png)
+
 # Setup
 Ensure prerequisites are installed
 - Open terminal (e.g. [Bash terminal](https://gitforwindows.org/)), in any directory
